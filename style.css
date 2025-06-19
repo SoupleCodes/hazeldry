@@ -1,0 +1,91 @@
+html, body { margin: 0; width: 100%; height: 100% }
+body {
+    background: url('/images/wallpaper/arches.png'), #C1C1CE;
+    font-family: Instrument Sans;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background: url('/images/header-bg.png');
+    height: 43px;
+}
+
+.flex { display: flex }
+.column { display: flex; flex-direction: column }
+.row { display: flex; flex-direction: row }
+.grow { display: flex; flex-grow: 1 }
+.grow-5 { display: flex; flex-grow: .5 }
+
+#header {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 -1px 2px black;
+    place-content: center;
+    justify-content: space-between;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+#contents {
+    overflow: auto;
+    flex: 1;
+}
+#navigation {
+    background: url('/images/nav-bg.png');
+    height: 48px;
+}
+
+.post {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(#F3F3FA91, #E1E1ED8C);
+    border-top: 1px solid #ffffffa8;
+    border-bottom: 1px solid #BCBCCA;
+}
+.post-pfp {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border: 1px solid #BBBBCD
+}
+
+#post-field {
+    height: 33px;
+    display: flex
+}
+#upload-icon {
+    width: 35px;
+    height: 100%;
+    background: url('/images/post/upload.png')
+}
+#edge1 {
+    width: 13px;
+    height: 100%;
+    background: url('/images/post/edge1.png')  
+}
+#field {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    background: url('/images/post/fill.png')
+}
+#field input {
+    background: transparent;
+    border: none;
+    color: #8F8F9A;
+    font-size: 10px;
+    width: 100%
+}
+#field input:focus {
+    outline: none;
+}
+#edge2 {
+    width: 18px;
+    height: 100%;
+    background: url('/images/post/edge2.png')
+}
+#post-send {
+    width: 55px;
+    height: 100%;
+    background: url('/images/post/send.png')
+}
