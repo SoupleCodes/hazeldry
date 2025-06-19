@@ -25,8 +25,9 @@ function buildPost(msg) {
     content.innerText = "@" + msg.author.username + " - " + msg.content
     post.appendChild(content)
 
-    if(Math.ceil(contents.scrollHeight - contents.scrollTop) === contents.clientHeight) {
-        posts.appendChild(post)
+    const calc = Math.ceil(contents.scrollHeight - contents.scrollTop)
+    posts.appendChild(post)
+    if(calc === contents.clientHeight) {
         contents.scrollTo({ top: contents.scrollHeight, behavior: 'smooth'})
     }
 
