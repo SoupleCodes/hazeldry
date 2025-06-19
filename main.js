@@ -3,7 +3,10 @@ const posts = document.getElementById("posts")
 const contents = document.getElementById("contents")
 
 function buildPost(msg) {
-    console.log(msg)
+    if (msg.username === 'bridge') {
+        return
+    }
+
     const post = document.createElement("div")
     post.classList.add("post")
     post.id = msg._id
@@ -26,6 +29,8 @@ function buildPost(msg) {
     if(Math.ceil(contents.scrollHeight - contents.scrollTop) === contents.clientHeight) {
         post.scrollIntoView()
     }
+
+    console.log(msg)
 }
 
 ws.onmessage = (e) => {
@@ -36,6 +41,7 @@ ws.onmessage = (e) => {
             messages.forEach(message => {
                 buildPost(message)
             })
+            contents.scrollTop = contents.scrollHeight
             break
         case "new_post":
             buildPost(data.data)
