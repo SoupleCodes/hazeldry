@@ -3,13 +3,6 @@ const posts = document.getElementById("posts")
 const contents = document.getElementById("contents")
 
 function buildPost(msg) {
-    if (msg.replies && msg.replies.some(reply => reply.author && reply.author.username === 'bridge')) {
-        return
-    }
-    if (msg.author.username === 'bridge') {
-        return
-    }
-
     const post = document.createElement("div")
     post.classList.add("post")
     post.id = msg._id
