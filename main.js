@@ -3,7 +3,10 @@ const posts = document.getElementById("posts")
 const contents = document.getElementById("contents")
 
 function buildPost(msg) {
-    if (msg.username === 'bridge') {
+    if (msg.replies && msg.replies.some(reply => reply.author && reply.author.username === 'bridge')) {
+        return
+    }
+    if (msg.author.username === 'bridge') {
         return
     }
 
