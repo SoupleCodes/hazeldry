@@ -7,6 +7,7 @@ function buildPost(msg) {
     post.classList.add("post")
     post.id = msg._id
 
+    // Pfp
     const pfpcontainer = document.createElement("div")
     pfpcontainer.classList.add("post-pfp-container")
 
@@ -16,14 +17,18 @@ function buildPost(msg) {
     pfpcontainer.appendChild(pfp)
     post.appendChild(pfpcontainer)
 
+    // Content
     const content = document.createElement("div")
     content.classList.add("post-content")
+
+    
     content.innerText = "@" + msg.author.username + " - " + msg.content
     post.appendChild(content)
 
-    const calc = Math.ceil(contents.scrollHeight - contents.scrollTop)
+    const scrollThreshold = 100;
+    const isNearBottom = contents.scrollHeight - contents.scrollTop <= contents.clientHeight + scrollThreshold;
     posts.appendChild(post)
-    if(calc === contents.clientHeight) {
+    if(isNearBottom) {
         contents.scrollTo({ top: contents.scrollHeight, behavior: 'smooth'})
     }
 
@@ -42,6 +47,14 @@ ws.onmessage = (e) => {
             break
         case "new_post":
             buildPost(data.data)
+            break
+        case "deleted_post":
+            document.getElementById(data._id).remove()
+            break
+        case "edited_post":
+            let targElement = document.getElementById(data._id)
+            let author = targElement.innerText.split(" - ")[0]
+            targElement.querySelector(".post-content").innerText = author + " - " + data.content
             break
         default:
             console.log(data)

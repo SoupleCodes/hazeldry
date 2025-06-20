@@ -8,6 +8,7 @@ body {
 header {
     background: url('/images/header-bg.png');
     height: 43px;
+    justify-content: center;
 }
 
 .flex { display: flex }
@@ -20,7 +21,6 @@ header {
     color: white;
     font-weight: bold;
     text-shadow: 0 -1px 2px black;
-    place-content: center;
     justify-content: space-between;
     width: 300px;
     display: flex;
@@ -33,7 +33,19 @@ header {
 #navigation {
     background: url('/images/nav-bg.png');
     height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+#navigation div {
+    width: 64px;
+    cursor: pointer
+}
+#nav-home { background: url('/images/nav/home.png') }
+#nav-inbox { background: url('/images/nav/inbox.png') }
+#nav-livechat { background: url('/images/nav/livechat.png') }
+#nav-moderate { background: url('/images/nav/moderate.png') }
+#nav-profile { background: url('/images/nav/profile.png') }
 
 .post {
     display: flex;
